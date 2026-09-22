@@ -1,12 +1,15 @@
 {
   "name": "@dsh-external/dsh-token-ledger",
   "version": "0.1.1",
-  "description": "跨 API 提供商的全局累积 token 用量账本：历史回填 + 实时跟踪 + 统计工具与悬浮面板（零依赖，拷走即用）",
+  "description": "Cumulative token usage ledger for DeepSeek Harness: live capture plus historical backfill, draggable web panel and HTTP API. | 中文：DSH 全局累积 token 用量账本：实时捕获 + 历史回填，悬浮面板与 HTTP API。",
   "private": true,
   "type": "module",
   "main": "./lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
   ],
   "license": "BSD-3-Clause",
   "devDependencies": {
