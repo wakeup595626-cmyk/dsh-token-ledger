@@ -1,7 +1,7 @@
 {
   "name": "@dsh-external/dsh-token-ledger",
   "version": "0.1.1",
-  "description": "Cumulative token usage ledger for DeepSeek Harness: live capture plus historical backfill, draggable web panel and HTTP API. | 中文：DSH 全局累积 token 用量账本：实时捕获 + 历史回填，悬浮面板与 HTTP API。",
+  "description": "A provider-agnostic cumulative token usage ledger for DeepSeek Harness. | 中文：DSH 全局累积 token 用量账本：实时捕获 + 历史回填。",
   "private": true,
   "type": "module",
   "main": "./lib/index.js",
@@ -44,5 +44,21 @@
       ],
       "platform": "web"
     }
-  }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "token-usage",
+    "telemetry"
+  ],
+  "homepage": "https://github.com/wakeup595626-cmyk/dsh-token-ledger#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wakeup595626-cmyk/dsh-token-ledger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wakeup595626-cmyk/dsh-token-ledger/issues"
+  },
+  "author": "wakeUp595626-cmyk"
 }
