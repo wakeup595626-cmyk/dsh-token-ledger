@@ -9,6 +9,7 @@
     "lib",
     "cordis.patch.yml",
     "README.md",
+    "README.en.md",
     "LICENSE"
   ],
   "license": "BSD-3-Clause",
@@ -60,5 +61,5 @@
   "bugs": {
     "url": "https://github.com/wakeup595626-cmyk/dsh-token-ledger/issues"
   },
-  "author": "wakeUp595626-cmyk"
+  "author": "wakeup595626-cmyk"
 }

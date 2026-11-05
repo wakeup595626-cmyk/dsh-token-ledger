@@ -1,8 +1,12 @@
-# @dsh-external/dsh-token-ledger
+# DSH Token Ledger
 
 **中文** | [English](README.en.md)
 
-为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 提供跨提供商的**全局累积 token 用量账本**：实时捕获、历史回填、可拖拽悬浮面板与 HTTP API。
+[![Release](https://img.shields.io/github/v/release/wakeup595626-cmyk/dsh-token-ledger)](https://github.com/wakeup595626-cmyk/dsh-token-ledger/releases)
+[![License: BSD-3-Clause](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
+[![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-token%20usage-4f46e5)](https://github.com/deepseek-ai/deepseek-harness)
+
+为 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 提供跨提供商的**全局累积 token 用量账本**：实时捕获、历史回填、可拖拽悬浮面板与本地 HTTP API。
 
 账本采用与官方 `dsh-token-meter` 相同的 usage 事件契约，因此与具体 API 提供商无关。
 
@@ -12,11 +16,13 @@
 - **持久化**：`~/.dsh/token-ledger/ledger.json`，采用 tmp + rename 原子写与定时防抖。
 - **失败自闭合**：全部路径都有 `try/catch`，统计异常绝不影响会话主流程。
 
-## 安装
+## 快速开始
 
 ```sh
 dsh plugin --profile web add github:wakeup595626-cmyk/dsh-token-ledger
 ```
+
+该包尚未发布到 npm，请使用上面的 GitHub 安装方式。安装或更新后重启 `dsh web`，左下角会出现账本入口。
 
 ## 使用
 
@@ -27,6 +33,21 @@ dsh plugin --profile web add github:wakeup595626-cmyk/dsh-token-ledger
 - 已安装 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
 - host 侧可用的 Node.js zstd 支持
 
+## 数据与边界
+
+- 账本只读取 DSH 会话记录，并把聚合结果写入 `~/.dsh/token-ledger/ledger.json`；不会修改原始会话。
+- 面板与 API 由本机 DSH host 提供，插件不向外部服务上传用量。
+- “全局”指本机 DSH 数据根下的全部会话；多个独立的 `DSH_HOME` 不会被合并。
+
+## 开发与验证
+
+```sh
+npm run build
+npm run typecheck
+```
+
+升级 DSH 日志格式后，至少检查一次实时统计、历史回填、刷新页面后的累计值和重复计数。
+
 ## 第三方声明
 
 无第三方运行时依赖，zstd 解压交由 host 运行时完成。
@@ -36,7 +57,6 @@ dsh plugin --profile web add github:wakeup595626-cmyk/dsh-token-ledger
 ## 社区与支持
 
 - 通过 [GitHub Issues](https://github.com/wakeup595626-cmyk/dsh-token-ledger/issues) 报告问题与提问。
-- 为你自己的插件仓库添加 [`dsh-plugin`](https://github.com/topics/dsh-plugin) 话题，便于被发现。
 - 在 [awesome-dsh-plugin.com](https://awesome-dsh-plugin.com) 浏览更广阔的插件生态。
 
 ## 参与贡献
@@ -48,7 +68,7 @@ dsh plugin --profile web add github:wakeup595626-cmyk/dsh-token-ledger
 ```bibtex
 @misc{dsh-token-ledger,
   title={dsh-token-ledger},
-  author={wakeUp595626-cmyk},
+  author={wakeup595626-cmyk},
   year={2026},
   publisher={GitHub},
   howpublished={\url{https://github.com/wakeup595626-cmyk/dsh-token-ledger}},
